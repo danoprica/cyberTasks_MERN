@@ -29,7 +29,7 @@ body {
 h1 {
     font-size: 40px;
     font-weight: 700;
-    margin-bottom: 32px;
+    margin-bottom: 38px;
 }
 
 .todo {
@@ -78,8 +78,8 @@ h1 {
     transform: translateY(-50%);
     right: 16px;
     color: var(--light);
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     background-color: #AF1E2D;
     display: flex;

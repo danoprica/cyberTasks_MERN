@@ -2,7 +2,7 @@ function App() {
 
   return (
     <div className='App'>
-      <h1>Task manager</h1>
+      <h1>Cybertasks</h1>
 
 
       <div className='todos'>
