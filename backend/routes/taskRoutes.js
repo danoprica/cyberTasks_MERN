@@ -1,9 +1,8 @@
 import express from 'express'
-import Task from '../models/Task.js'
-import asyncHandler from '../middleware/asyncHandler.js'
 const router = express.Router()
+import { getTasks} from '../controllers/taskController.js'
 
-
+router.route('/').get(getTasks)
 
 
 export default router
