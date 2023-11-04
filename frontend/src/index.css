@@ -7,6 +7,8 @@
     --backgroundPurple-alt: #170229;
     --success: #3cf281;
     --success-glow: 0 0 2px rgba(60, 242, 129, 0.9), 0 0 4px rgba(60, 242, 129, 0.4), 0 0 1rem rgba(60, 242, 129, 0.3), 0 0 4rem rgba(60, 242, 129, 0.1);
+    --neon: #32fbe2;
+    --neon-glow:  0 0 1px rgba(50, 251, 226, 0.6), 0 0 3px rgba(50, 251, 226, 0.5), 0 0 0.5rem rgba(50, 251, 226, 0.3), 0 0 2rem rgba(50, 251, 226, 0.2);
 }
 
 * {
@@ -30,6 +32,8 @@ h1 {
     font-size: 40px;
     font-weight: 700;
     margin-bottom: 38px;
+    color: var(--neon);
+    text-shadow: var(--neon-glow);
 }
 
 .todo {
