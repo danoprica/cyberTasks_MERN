@@ -7,3 +7,4 @@ const connectDB = mongoose.connect(process.env.MONGO_URI)
   .catch(console.error)
 
 export default connectDB
+
