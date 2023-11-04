@@ -1,41 +1,66 @@
 import asyncHandler from '../middleware/asyncHandler.js'
 import Task from '../models/Task.js'
 
-//@desc    Fetch all tasks
-//@router  GET /api/tasks
-//@access  Public
-const getTasks = asyncHandler(async (req, res) => {
-  const tasks = await Task.find({})
-  res.json(tasks)
+
+// @desc Get tasks
+// @route GET /api/tasks
+// @access Private
+const getTasks = asyncHandler(async(req, res) => {
+  const tasks = await Task.find()
+
+  res.status(200).json(tasks)
 })
 
-
-//@desc    Create a task
-//@router  POST /api/tasks/:id
-//@access  Public
+// @desc Set task
+// @route SET /api/task
+// @access Private
 const createTask = asyncHandler(async (req, res) => {
-  const task = new Task ({
+  if(!req.body.text){
+    res.status(400)
+    throw new Error('Please add a text field')
+  }
+  const task = await Task.create({
     text: req.body.text
   })
-  const createdTask = await task.save()
-  res.status(201).json(createdTask)
+  res.status(201).json(task)
 })
 
-//@desc    Create a task
-//@router  DELETE /api/tasks/:id
-//@access  Public
-const deleteTask = asyncHandler(async (req, res) => {
+
+// @desc Update task
+// @route PUT /api/task
+// @access Private
+const updateTask = asyncHandler(async (req, res) => {
   const task = await Task.findById(req.params.id)
 
-  if (task) {
-    await Task.deleteOne({ _id: task._id })
-    res.json({ message: 'Task removed'})
-  } else {
-    res.status(404)
+  if(!task) {
+    res.status(400)
     throw new Error('Task not found')
   }
 
+  const updatedTask = await Task.findByIdAndUpdate(
+    req.params.id,
+    req.body, {
+      new: true
+    })
+
+  res.status(200).json(updatedTask)
+})
+
+// @desc Delete task
+// @route DELETE /api/task
+// @access Private
+const deleteTask = asyncHandler(async(req, res) => {
+  const task = await Task.findById(req.params.id)
+  if(!task) {
+    res.status(400)
+    throw new Error('Task not found')
+  }
+  await task.deleteOne()
+
+  res.status(200).json({ id: req.params.id })
+
 })
 
 
-export { getTasks, createTask }
+
+export { getTasks, createTask, updateTask, deleteTask }
