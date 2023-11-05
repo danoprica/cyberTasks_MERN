@@ -52,6 +52,7 @@ function App() {
     axios
       .post(API_URL, {text: text})
       .then(() => {
+        setText('')
         getTasks()
       }).catch((err) => {
         console.log(err)
@@ -84,7 +85,7 @@ function App() {
       <div className='addPopup' onClick={() => setPopupActive(true)}>+</div>
       {popupActive ? (
         <div className="popup">
-          <div className="closePopup" onClick={() => setPopupActive(false)}>X</div>
+          <div className="closePopup" onClick={() => {setPopupActive(false); setText('')}}>X</div>
           <div className="content">
             <h3>Add Task</h3>
             <input type="text" onChange={(e) => setText(e.target.value)} value={text} className="add-todo-input"/>
