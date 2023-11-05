@@ -5,7 +5,9 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import taskRoutes from './routes/taskRoutes.js'
 import cors from 'cors';
 import * as path from 'path';
+import { fileURLToPath } from 'url';
 dotenv.config()
+
 const port = process.env.PORT || 5000
 
 connectDB
@@ -23,6 +25,8 @@ app.use(express.urlencoded({extended: false}))
 //routes
 app.use('/api/tasks', taskRoutes)
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '/frontend/build')))
