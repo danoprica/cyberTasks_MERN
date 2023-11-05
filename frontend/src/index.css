@@ -127,7 +127,7 @@ h1 {
     transform: translate(-50%, -50%);
     width: 100%;
     max-width: 400px;
-    background-color: #23a3f2;
+    background-color: #ea39b7;
     padding: 32px;
     border-radius: 16px;
 
@@ -144,6 +144,7 @@ h1 {
     height: 32px;
     font-size: 25px;
     color: #ffbf07;
+    text-shadow: 0 0 2px rgba(255, 193, 7, 0.9), 0 0 4px rgba(255, 193, 7, 0.4), 0 0 1rem rgba(255, 193, 7, 0.3), 0 0 4rem rgba(255, 193, 7, 0.1); ;
     cursor: pointer;
     font-weight: 600;
 }
