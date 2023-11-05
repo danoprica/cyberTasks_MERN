@@ -8,20 +8,44 @@ function App() {
   const [tasks, setTasks] = useState([])
 
   useEffect(() => {
-    GetTasks()
+    getTasks()
   }, [])
 
-  const GetTasks = () => {
+  const getTasks = () => {
     axios
-        .get(API_URL)
-        .then((res) => {
-          console.log(res.data)
-          setTasks(res.data)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+    .get(API_URL)
+    .then((res) => {
+      setTasks(res.data)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   }
+
+  const deleteTask = async (id) => {
+      axios
+        .delete(API_URL + '/' + id)
+        .then(() => {
+            getTasks()
+        }).catch((err) => {
+            console.log(err)
+      })
+  }
+
+  const updateTask = async (id) => {
+    const updatedTask = tasks.find((data) => data._id === id)
+    console.log(updatedTask)
+    updatedTask.complete = updatedTask.complete !== true;
+    axios
+      .put(API_URL + '/' + id, updatedTask)
+      .then(() => {
+        getTasks()
+      }).catch((err) => {
+        console.log(err)
+    })
+  }
+
+
 
   return (
     <div className='App'>
@@ -29,12 +53,16 @@ function App() {
         <h1>Cybertasks</h1>
         <div className='tasks'>
           {tasks.map(task => (
-              <div className={'task ' + (task.complete ? 'is-complete': '')} key={task._id}>
+              <div
+                  key={task._id }
+                  className={'task ' + (task.complete ? 'is-complete': '')}
+                  onClick={() => updateTask(task._id)}
+              >
                 <div className='checkbox'></div>
                 <div className='text'>
                   { task.text }
                 </div>
-                <div className='delete-task'>X</div>
+                <div className='delete-task' onClick={() => deleteTask(task._id)}>X</div>
               </div>
           ))}
 
