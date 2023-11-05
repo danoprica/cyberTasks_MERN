@@ -29,9 +29,10 @@ body {
 }
 
 h1 {
-    font-size: 40px;
+    font-size: 60px;
     font-weight: 700;
-    margin-bottom: 38px;
+    margin-top: 12px;
+    margin-bottom: 64px;
     color: var(--neon);
     text-shadow: var(--neon-glow);
 }
@@ -85,7 +86,9 @@ h1 {
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background-color: #AF1E2D;
+    background-color: #e44c55;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3), 0 0 2px rgba(255, 255, 255, 0.3), 0 0 5px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 2rem rgba(231, 94, 102, 0.4), 0 0 8rem rgba(231, 94, 102, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -166,4 +169,9 @@ h1 {
     margin-top: 16px;
     text-align: center;
     cursor: pointer;
+}
+
+.container {
+    width: 1480px;
+    margin: auto;
 }
