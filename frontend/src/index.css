@@ -114,6 +114,12 @@ h1 {
     cursor: pointer;
 }
 
+.addPopup:hover {
+    opacity: 0.8;
+}
+
+
+
 .popup {
     position: fixed;
     top: 50%;
@@ -121,23 +127,25 @@ h1 {
     transform: translate(-50%, -50%);
     width: 100%;
     max-width: 400px;
-    background-color: var(--light);
+    background-color: #23a3f2;
     padding: 32px;
     border-radius: 16px;
-    box-shadow: 0px 4px 32px var(--backgroundPurple);
+
+
 }
 
 
 
 .closePopup {
     position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 20px;
-    height: 20px;
-    font-size: 20px;
-    color: var(--backgroundPurple);
+    top: 9px;
+    right: 12px;
+    width: 16px;
+    height: 32px;
+    font-size: 25px;
+    color: #ffbf07;
     cursor: pointer;
+    font-weight: 600;
 }
 
 .popup h3 {
@@ -157,22 +165,40 @@ h1 {
     width: 100%;
     box-shadow: 0px 2px 24px rgba(0, 0, 0, 0.2);
     font-size: 20px;
+    margin-bottom: 20px;
 }
 
 .button {
     padding: 16px 32px;
     border-radius: 999px;
-    background-image: linear-gradient(to right, var(--primary), var(--secondary));
     display: inline-block;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 18px;
-    margin-top: 16px;
     text-align: center;
     cursor: pointer;
+    width: 160px;
+    margin: auto;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3), 0 0 2px rgba(255, 255, 255, 0.3), 0 0 5px rgba(255, 255, 255, 0.2);
+    background-color: #ffbf07;
+    box-shadow: 0 0 2px rgba(255, 193, 7, 0.9), 0 0 4px rgba(255, 193, 7, 0.4), 0 0 1rem rgba(255, 193, 7, 0.3), 0 0 4rem rgba(255, 193, 7, 0.1);
+    cursor: pointer;
+
+}
+
+.button:hover {
+    opacity: 0.9;
 }
 
 .container {
     width: 1480px;
     margin: auto;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 12px;
 }

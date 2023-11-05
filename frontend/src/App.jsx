@@ -87,9 +87,8 @@ function App() {
         <div className="popup">
           <div className="closePopup" onClick={() => {setPopupActive(false); setText('')}}>X</div>
           <div className="content">
-            <h3>Add Task</h3>
-            <input type="text" onChange={(e) => setText(e.target.value)} value={text} className="add-todo-input"/>
-            <div className="button" onClick={addTask}>Create Task</div>
+            <input type="text" onChange={(e) => setText(e.target.value)} value={text} className="add-task-input"/>
+            <div className="button" onClick={addTask}>Add Task</div>
           </div>
         </div>
       ) : ''}
