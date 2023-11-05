@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-const API_URL = 'http://localhost:8000/api/tasks'
 
 function App() {
 
@@ -16,7 +15,7 @@ function App() {
 
   const getTasks = () => {
     axios
-    .get(API_URL)
+    .get('api/tasks')
     .then((res) => {
       setTasks(res.data)
     })
@@ -27,7 +26,7 @@ function App() {
 
   const deleteTask = async (id) => {
       axios
-        .delete(API_URL + '/' + id)
+        .delete('api/tasks' + '/' + id)
         .then(() => {
             getTasks()
         }).catch((err) => {
@@ -40,7 +39,7 @@ function App() {
     console.log(updatedTask)
     updatedTask.complete = updatedTask.complete !== true;
     axios
-      .put(API_URL + '/' + id, updatedTask)
+      .put('api/tasks' + '/' + id, updatedTask)
       .then(() => {
         getTasks()
       }).catch((err) => {
@@ -50,7 +49,7 @@ function App() {
 
   const addTask = async() => {
     axios
-      .post(API_URL, {text: text})
+      .post('api/tasks', {text: text})
       .then(() => {
         setText('')
         getTasks()
