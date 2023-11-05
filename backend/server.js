@@ -3,7 +3,6 @@ import dotenv from 'dotenv'
 import connectDB from './config/db.js'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import taskRoutes from './routes/taskRoutes.js'
-import cors from 'cors';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 dotenv.config()
@@ -16,7 +15,6 @@ connectDB
 
 const app = express()
 
-app.use(cors({ origin: true, credentials: true }));
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
