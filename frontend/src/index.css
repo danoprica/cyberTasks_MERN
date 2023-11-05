@@ -37,7 +37,7 @@ h1 {
     text-shadow: var(--neon-glow);
 }
 
-.todo {
+.task {
     position: relative;
     background-color: var(--backgroundPurple);
     padding: 16px;
@@ -49,11 +49,11 @@ h1 {
     margin-bottom: 16px;
 }
 
-.todo:hover {
+.task:hover {
     opacity: 0.8;
 }
 
-.todo .checkbox {
+.task .checkbox {
     width: 20px;
     height: 20px;
     margin-right: 16px;
@@ -63,21 +63,21 @@ h1 {
     transition: 0.4s;
 }
 
-.todo.is-complete .checkbox {
+.task.is-complete .checkbox {
     background-color: var(--success);
     box-shadow: var(--success-glow);
 
 }
 
-.todo .text {
+.task .text {
     font-size: 20px;
 }
 
-.todo.is-complete .text {
+.task.is-complete .text {
     text-decoration: line-through;
 }
 
-.todo .delete-todo {
+.task .delete-task {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -146,7 +146,7 @@ h1 {
     text-transform: uppercase;
 }
 
-.add-todo-input {
+.add-task-input {
     appearance: none;
     outline: none;
     border: none;
