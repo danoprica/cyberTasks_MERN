@@ -1,5 +1,5 @@
 # cyberTasks_MERN
- To do list app developed with the MERN stack
+ To do list app developed with the MERN stack </br>
  My goal was to develop a simple project from front to back, using a minimalist framework.
  The backend follows the MVC design, while
  the frontend is inspired by the Bootstrap Vapor theme.
